@@ -21,17 +21,14 @@
   }
   
   .links_list li {
-    margin-right: 1em;
-  }
-  
-  .links_list li a {
     padding: 0.4em 0.6em;
-  }
+  }  
   
   .active {
     background-color: #000;
     color: #fff;
   }
+
   .exit{
     border: none;
     background-color: transparent;

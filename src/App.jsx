@@ -10,19 +10,22 @@ function App() {
 
   return (
     <>
-      <div>
-        <BrowserRouter>
+      <BrowserRouter>
+
         <Navbar />
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </Routes>
-          </div>
-          <Footer />
-        </BrowserRouter>
-      </div>
+
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            {/* <Route path="/about" element={<About />} /> */}
+          </Routes>
+        </div>
+
+        <Footer />
+
+      </BrowserRouter>
     </>
   )
 }
