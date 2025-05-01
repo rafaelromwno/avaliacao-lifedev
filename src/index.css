@@ -57,7 +57,7 @@ input, textarea{
 }
 
 .btn{
-  background-color: #000;
+  background-color: #0e810a;;
   text-align: center;
   color: #fff;
   border-radius: 5px;
@@ -83,9 +83,9 @@ input, textarea{
 }
 
 .btn:hover{
-  background-color: #0e810a;
+  background-color: #0c7208;
   color: white;
-  transition: 500ms;
+  transition: 300ms;
   cursor: pointer;
 }
 
@@ -98,12 +98,10 @@ button[disabled]{
   background-color: rgb(161, 157, 157);
 }
 
-.container.error{
+.container .error {
   color: #721c24;
-  background-color: #f8d4da;
-  border: 1px solid #e7b8bd;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
   padding: 5px;
   border-radius: 5px;
-  align-items: center;
-  text-align: center;
 }

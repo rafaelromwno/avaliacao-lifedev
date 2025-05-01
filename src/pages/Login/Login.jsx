@@ -10,7 +10,7 @@ const Login = () => {
 
     const { login, error: authError, loading } = useAuthentication()
 
-    const handlerSubmit = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         setError("")
@@ -35,7 +35,7 @@ const Login = () => {
         <div className={styles.login}>
             <h1>Entrar</h1>
             <p>Faça login em nossa plataforma de desenvolvedores</p>
-            <form onSubmit={handlerSubmit}>
+            <form onSubmit={handleSubmit}>
                 <label>
                     <span>E-mail: </span>
                     <input
@@ -59,8 +59,8 @@ const Login = () => {
                     />
                 </label>
                 {!loading && <button className='btn'>Entrar</button>}
-                {loading && <button className='btn' disabled>Aguarde... </button>}
-                {error && <p>{error}</p>}
+                {loading && <button className='btn' disabled>Aguarde...</button>}
+                {error && <p className='error'>{error}</p>}
             </form>
         </div>
     )

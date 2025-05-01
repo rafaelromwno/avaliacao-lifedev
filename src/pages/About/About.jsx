@@ -14,7 +14,7 @@ const About = () => {
             Esse projeto consiste em um mini blog para desenvolvedores feito para uma avaliação!
         </p>
 
-        <Link to="" className="btn">
+        <Link to="/post/new" className="btn">
             Criar post
         </Link>
 
