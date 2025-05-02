@@ -2,7 +2,8 @@ import React from 'react'
 import styles from './CreatePost.module.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import {useAuthValue} from '../../context/AuthContext'
+import { useAuthValue } from '../../context/AuthContext'
+import { useInsertDocument } from '../../hooks/useInsertDocument'
 
 const CreatePost = () => {
 
@@ -11,9 +12,47 @@ const CreatePost = () => {
   const [content, setContent] = useState('')
   const [tags, setTags] = useState([])
   const [formError, setFormError] = useState('')
+  const {user} = useAuthValue()
+  const navigate = useNavigate()
+  const {insertDocument, response} = useInsertDocument('posts')
 
   const handleSubmit = (e) => {
+
     e.preventDefault()
+    setFormError('')
+
+    if(!title || !image || !content || !tags) {
+      setFormError('Por favor, preencha todos os campos!')
+      return
+    }
+
+    try {
+
+      new URL(image)
+      
+    } catch (error) {
+      
+      setFormError('A imagem precisa ser uma URL válida!')
+      return
+    }
+
+    const tagsArray = tags.split(',').map((tag) => tag.trim().toLowerCase())
+
+    const post = {
+      title,
+      image,
+      content,
+      tags: tagsArray,
+      uid: user.uid,
+      createdBy: user.displayName,
+    }
+
+    console.log(tagsArray)
+    console.log(post)
+
+    insertDocument(post)  
+    navigate("/")
+
   }
 
   return (
@@ -44,7 +83,15 @@ const CreatePost = () => {
             <input type="text" name="tags" placeholder='Digite as tags separadas por vírgula (ex: JavaScript, React, UI)' onChange={(e) => setTags(e.target.value)} value={tags} required />
           </label>
 
-          <button className='btn'>Criar</button>
+          {!response.loading && <button className="btn">Criar</button>}
+          {response.loading && (
+            <button className="btn" disabled>
+              Aguarde...
+            </button>
+          )}
+          {(response.error || formError) && (
+            <p className="error">{response.error || formError}</p>
+          )}
 
         </form>
     </div>
