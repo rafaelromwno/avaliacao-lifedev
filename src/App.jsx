@@ -13,6 +13,7 @@ import Dashboard from './pages/Dashboard/Dashboard'
 import SearchResult from './pages/SearchResult/SearchResult'
 import './App.css'
 import { useEffect, useState } from 'react'
+import PostView from './pages/PostView/PostView'
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/search" element={<SearchResult />} />
+              <Route path="/post/:id" element={<PostView />} />
 
               <Route path="/login" element={!user ? <Login /> : <Navigate to="/"/>} />
 

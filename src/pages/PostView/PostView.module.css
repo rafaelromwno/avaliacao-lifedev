@@ -1,0 +1,57 @@
+.postContainer {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.postHeader {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.postTitle {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.postImageWrapper {
+    margin: 0;
+}
+
+.postImage {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.postBody {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.postTagsSection {
+    margin-top: 2rem;
+}
+
+.tagsTitle {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.tagsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background-color: #eef1f5;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: #444;
+}  
