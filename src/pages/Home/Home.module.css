@@ -10,7 +10,7 @@
   width: 60%;
   display: flex;
   justify-content: center;
-  margin-bottom: 2em;
+  margin: 3em 0em;
 }
 
 .search_form input {

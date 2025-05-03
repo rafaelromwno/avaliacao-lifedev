@@ -1,0 +1,58 @@
+import React from 'react'
+import styles from './SearchResult.module.css'
+import { useFetchDocuments } from '../../hooks/useFetchDocuments'
+import { useQuery } from '../../hooks/useQuery'
+import { Link } from 'react-router-dom'
+import PostCard from '../../components/PostCard'
+
+const SearchResult = () => {
+
+  const query = useQuery()
+  const search = query.get('q')
+  const { documents: posts } = useFetchDocuments('posts', search)
+
+  return (
+    <div className={styles.resultsPage}>
+      
+      <header className={styles.resultsHeader}>
+        <h1 className={styles.resultsTitle}>
+          Resultados para: <span className={styles.searchQuery}>{search}</span>
+        </h1>
+      </header>
+
+      <main className={styles.resultsContent}>
+
+        {posts && posts.length === 0 ? (
+          <div className={styles.noPosts}>
+
+            <p className={styles.noPostsMessage}>
+              Não foram encontrados resultados para: <span className={styles.searchQuery}>{search}</span>
+            </p>
+
+
+            <Link to="/" className='btn btn-dark'>
+              Voltar
+            </Link>
+          </div>
+        ) : (
+
+          <div className={styles.postsGrid}>
+            {posts && posts.map((post) => (
+              <div key={post.id} className={styles.post}>
+                
+                <PostCard key={post.id} post={post} />
+
+              </div>
+            ))}
+          </div>
+
+        )}
+
+      </main>
+
+
+    </div>  
+  )
+}
+
+export default SearchResult

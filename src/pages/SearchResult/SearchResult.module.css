@@ -1,0 +1,39 @@
+.resultsPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.resultsHeader {
+    margin-bottom: 1.5rem;
+}
+
+.resultsTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.searchQuery {
+    color: #0769d3;
+}
+
+.resultsContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.noPosts {
+    text-align: center;
+    color: #666;
+}
+
+.noPostsMessage {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 3em 0;
+}
