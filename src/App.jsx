@@ -14,6 +14,7 @@ import SearchResult from './pages/SearchResult/SearchResult'
 import './App.css'
 import { useEffect, useState } from 'react'
 import PostView from './pages/PostView/PostView'
+import EditPost from './pages/EditPost/EditPost'
 
 function App() {
 
@@ -53,6 +54,8 @@ function App() {
               <Route path="/register" element={!user ? <Register /> : <Navigate to="/" />} />              
 
               <Route path="/post/new" element={user ? <CreatePost /> : <Navigate to="/login" />} />
+
+              <Route path="/post/edit/:id" element={user ? <EditPost /> : <Navigate to="/login" />} />
 
               <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login" />} />
               
