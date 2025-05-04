@@ -7,7 +7,7 @@ const NoPosts = () => {
     
     <div className={styles.noposts}>
         <p>Publicações não encontradas!</p>
-        <Link to="/post/new" className="btn">
+        <Link to="/post/new" className={styles.btn}>
             Criar Publicação
         </Link>
     </div>

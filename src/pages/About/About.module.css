@@ -6,8 +6,10 @@
 }
 
 .about p {
-  color: #aaa;
+  color: rgb(19, 18, 18);
   margin-bottom: 2em;
+  text-align: justify;
+  max-width: 40%
 }
 
 .about a {

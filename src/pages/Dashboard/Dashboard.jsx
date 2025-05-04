@@ -7,7 +7,6 @@ import { useFetchDocuments } from '../../hooks/useFetchDocuments'
 import { useAuthValue } from '../../context/AuthContext'
 import { useDeleteDocument } from '../../hooks/useDeleteDocument'
 
-
 const Dashboard = () => {
 
   const { user } = useAuthValue()

@@ -22,7 +22,7 @@ const Home = () => {
       <div className={styles.home}>
 
           <h1>Veja os posts mais recentes</h1>
-          <p>Fique por dentro do que está acontecendo no mundo da programação :D</p>
+          <p>Fique por dentro do que está acontecendo no mundo da programação 😃</p>
 
           <form className={styles.search_form} onSubmit={handleSubmit}>
               <input 

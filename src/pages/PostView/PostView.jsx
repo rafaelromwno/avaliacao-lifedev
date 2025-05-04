@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './PostView.module.css'
 import { useParams } from 'react-router-dom'
 import { useFetchDocument } from '../../hooks/useFetchDocument'
-import PostCard from '../../components/PostCard'
 
 const PostView = () => {
 

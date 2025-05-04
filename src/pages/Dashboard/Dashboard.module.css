@@ -22,12 +22,13 @@ h2 {
 .noposts p {
     color: #777;
     font-size: 16px;
+    font-weight: bold;
 }
 
 .noposts .btn {
     margin-top: 10px;
     display: inline-block;
-    background: #007bff;
+    background: #0e810a;
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
@@ -35,7 +36,7 @@ h2 {
 }
 
 .noposts .btn:hover {
-    background: #0056b3;
+    background: #0c7208;
 }
 
 .post_header {

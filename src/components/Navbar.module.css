@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5em 2em;
+  flex-wrap: wrap;
 }
 
 .brand {
@@ -18,19 +19,45 @@
 .links_list {
   display: flex;
   list-style: none;
+  gap: 0.5em;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 .links_list li {
   padding: 0.4em 0.6em;
-}  
+}
 
 .active {
   background-color: black;
   color: #fff;
   padding: 0.4em 0.6em;
+  border-radius: 0.25em;
 }
 
-.exit{
+.exit {
   border: none;
   background-color: transparent;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .links_list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .links_list li {
+    width: 100%;
+    text-align: center;
+  }
 }
