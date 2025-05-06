@@ -1,16 +1,16 @@
 import styles from './Login.module.css'
 import { useEffect, useState } from 'react'
 import { useAuthentication } from '../../hooks/useAuthentication'
-
+import { Link } from 'react-router-dom'
 
 const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
-
     const { login, error: authError, loading } = useAuthentication()
 
     const handleSubmit = async (e) => {
+
         e.preventDefault()
 
         setError("")
@@ -58,9 +58,15 @@ const Login = () => {
                         value={password}
                     />
                 </label>
+
+                <Link to="/recuperar-senha" className={styles.link} >
+                    Esqueceu a senha?
+                </Link>
+
                 {!loading && <button className='btn'>Entrar</button>}
                 {loading && <button className='btn' disabled>Aguarde...</button>}
-                {error && <p className='error'>{error}</p>}
+                {error && <p className='error'>{error}</p>}              
+
             </form>
         </div>
     )

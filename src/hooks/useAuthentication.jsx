@@ -3,6 +3,7 @@ import {
     signInWithEmailAndPassword,
     updateProfile,
     signOut,
+    sendPasswordResetEmail,
   } from 'firebase/auth'
   import { auth } from "../firebase/config"
   import { useState, useEffect } from "react"
@@ -65,12 +66,6 @@ import {
       }
     };
   
-    const logout = () => {
-      checkIfIsCancelled();
-  
-      signOut(auth);
-    };
-  
     const login = async (data) => {
       checkIfIsCancelled();
   
@@ -107,6 +102,53 @@ import {
   
       setLoading(false);
     };
+
+    const resetPassword = async (email) => {
+
+      checkIfIsCancelled()
+      setLoading(true)
+      setError(null)
+    
+      try {
+
+        await sendPasswordResetEmail(auth, email)
+
+      } catch (error) {
+
+        let systemErrorMessage = "Erro ao enviar e-mail de recuperação."
+    
+        if (error instanceof FirebaseError) {
+
+          switch (error.code) {
+
+            case "auth/user-not-found":
+              systemErrorMessage = "Usuário não encontrado."
+              break
+
+            case "auth/invalid-email":
+              systemErrorMessage = "E-mail inválido."
+              break
+
+            default:
+              console.warn("Código de erro não tratado:", error.code)
+          }
+        }
+    
+        console.error("Erro na recuperação de senha:", error)
+
+        setError(systemErrorMessage)
+      }
+    
+      setLoading(false)
+    }
+
+    const logout = () => {
+
+      checkIfIsCancelled()
+  
+      signOut(auth)
+      
+    }
   
     useEffect(() => {
       return () => setCancelled(true);
@@ -118,6 +160,7 @@ import {
       error,
       logout,
       login,
+      resetPassword,
       loading,
     };
   };

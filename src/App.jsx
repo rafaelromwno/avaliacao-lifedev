@@ -15,6 +15,7 @@ import './App.css'
 import { useEffect, useState } from 'react'
 import PostView from './pages/PostView/PostView'
 import EditPost from './pages/EditPost/EditPost'
+import RecoverPassword from './pages/RecoverPassword/RecoverPassword'
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/search" element={<SearchResult />} />
               <Route path="/post/:id" element={<PostView />} />
+              <Route path="/recuperar-senha" element={<RecoverPassword />} />
 
               <Route path="/login" element={!user ? <Login /> : <Navigate to="/"/>} />
 
