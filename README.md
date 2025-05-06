@@ -120,6 +120,90 @@ A base da aplicação foi estruturada a partir do repositório fornecido pelo do
     
 -   ✅ Funcionalidades extras e refinamentos técnicos
 
+## 🖼 Prints de Evidência
+
+### 1. Criando uma conta
+
+  _**Descrição:**_ Tela de cadastro de novo usuário com email e senha, demonstrando o fluxo de criação de conta no sistema.
+
+https://github.com/user-attachments/assets/525518f9-e811-4a1c-85ca-9b809aedabb0
+
+### 2. Entrando na conta
+
+_**Descrição:**_ Tela de login utilizando credenciais previamente cadastradas, com autenticação bem-sucedida.
+
+https://github.com/user-attachments/assets/483f9bb9-d2d2-433a-a6e2-f03c2020730d
+
+### 3 Saindo da conta
+
+_**Descrição:**_ Demonstração do processo de logout, finalizando a sessão do usuário.
+
+https://github.com/user-attachments/assets/ca9903c4-4457-49a0-afcf-4a2a1af02a68
+
+### 4. Recuperando a senha da conta
+
+_**Descrição:**_ Fluxo de recuperação de senha, com envio de email para redefinição.
+
+https://github.com/user-attachments/assets/0cc84338-46d2-4348-a137-75b2ead8bf37
+
+### 5. Email de Recuperação
+
+_**Descrição:**_ Visualização do email de recuperação recebido na caixa de entrada, com link de redefinição de senha.
+
+![email](https://github.com/user-attachments/assets/8ddb1b5f-23d3-4661-b1e6-bdb53a1d30e4)
+
+### 6. Criando e Visualizando uma publicação
+
+_**Descrição:**_ Formulário preenchido para nova publicação, com título, imagem, descrição e tags, seguido da confirmação de envio.
+
+https://github.com/user-attachments/assets/e5153412-061b-42b1-83c7-53290572112e
+
+### 7. Editando uma publicação
+
+_**Descrição:**_ Tela de edição de uma publicação existente, com campos sendo atualizados.
+
+https://github.com/user-attachments/assets/e259e13d-ff67-4676-992b-880ab655cb85
+
+### 9. Excluindo uma publicação
+
+_**Descrição:**_ Ação de remoção de uma publicação bem-sucedida.
+
+https://github.com/user-attachments/assets/46a3278f-dfba-4f04-9d8b-b296695ee9ae
+
+### 10. Pesquisando uma publicação pela tag
+
+_**Descrição:**_ Utilização do campo de busca para localizar publicações por tag específica.
+
+https://github.com/user-attachments/assets/889e2fc6-9c2b-4482-a693-09bcbeeac403
+
+### 11. Entrando com o google
+
+_**Descrição:**_ Processo de autenticação alternativa via conta Google, com confirmação de login bem-sucedido.
+
+https://github.com/user-attachments/assets/fbeed079-7ff5-49e7-bdbc-ea364cb5570b
+
+**Obs.:** O pop-up não é monitorado pelo software de gravação de tela, segue abaixo a imagem do pop-up:
+
+![login-google-popup](https://github.com/user-attachments/assets/13a9e8b8-3b81-4f6a-b2e2-d2b5dced006d)
+
+
+### 12. Visão no Firebase
+
+_**Descrição:**_ Painel do Firebase mostrando o usuário criado/autenticado na aba de autenticação, evidenciando integração com backend.
+
+![firebase](https://github.com/user-attachments/assets/73eafc03-2ef7-484e-b073-f3626c22f3b3)
+
+### 13. Testando rotas protegidas
+
+_**Descrição:**_ Tentativa de acesso a rotas que exigem autenticação sem estar logado, redirecionando para login.
+
+https://github.com/user-attachments/assets/1f21e346-2dbf-46d3-95c9-8f96364d93ae
+
+### 14. Digitando uma rota inexistente (Forçar erro 404)
+
+_**Descrição:**_ Navegação para uma URL inexistente no sistema, resultando em página de erro 404 personalizada.
+
+
 ## 📌 Conclusão
 
 A entrega foi concluída com sucesso, atendendo aos requisitos principais da prova e indo além com melhorias significativas em funcionalidade, experiência do usuário e segurança. O **MiniDevBlog** está pronto para uso e demonstra domínio das tecnologias propostas.
