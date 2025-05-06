@@ -4,6 +4,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.home .title {
+  text-align: center;
+}
+
+.home .subtitle {
+  text-align: center;
+}
   
 .search_form {
   max-width: 100%;
