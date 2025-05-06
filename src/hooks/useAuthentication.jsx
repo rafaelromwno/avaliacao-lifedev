@@ -4,6 +4,8 @@ import {
     updateProfile,
     signOut,
     sendPasswordResetEmail,
+    signInWithPopup,
+    GoogleAuthProvider,
   } from 'firebase/auth'
   import { auth } from "../firebase/config"
   import { useState, useEffect } from "react"
@@ -149,6 +151,38 @@ import {
       signOut(auth)
       
     }
+
+    const loginWithGoogle = async () => {
+
+      checkIfIsCancelled();
+    
+      setLoading(true);
+      setError(null);
+    
+      try {
+
+        const provider = new GoogleAuthProvider()
+        const result = await signInWithPopup(auth, provider)
+        const user = result.user
+    
+        return user
+
+      } catch (error) {
+    
+        let systemErrorMessage = "Erro ao realizar login com Google."
+    
+        if (error instanceof FirebaseError) {
+          console.warn("Código de erro não tratado:", error.code)
+        }
+    
+        setError(systemErrorMessage)
+        console.error("Erro no login com Google:", error)
+
+      }
+    
+      setLoading(false)
+    }
+    
   
     useEffect(() => {
       return () => setCancelled(true);
@@ -162,5 +196,6 @@ import {
       login,
       resetPassword,
       loading,
+      loginWithGoogle,
     };
   };

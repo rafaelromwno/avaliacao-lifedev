@@ -2,12 +2,13 @@ import styles from './Login.module.css'
 import { useEffect, useState } from 'react'
 import { useAuthentication } from '../../hooks/useAuthentication'
 import { Link } from 'react-router-dom'
+import { FcGoogle } from 'react-icons/fc'
 
 const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
-    const { login, error: authError, loading } = useAuthentication()
+    const { login, loginWithGoogle, error: authError, loading } = useAuthentication()
 
     const handleSubmit = async (e) => {
 
@@ -22,6 +23,18 @@ const Login = () => {
         const res = await login(user)
 
         console.log(res)
+    }
+
+    const handleGoogleLogin = async () => {
+
+        const user = await loginWithGoogle()
+
+        if (user) {
+    
+          console.log('Usuário logado com Google:', user)
+          navigate('/')
+    
+        }
     }
 
     useEffect(() => {
@@ -65,6 +78,13 @@ const Login = () => {
 
                 {!loading && <button className='btn'>Entrar</button>}
                 {loading && <button className='btn' disabled>Aguarde...</button>}
+
+                <p className={styles.divider}>OU</p>
+
+                <button onClick={handleGoogleLogin} disabled={loading} className={styles.googleBtn}>
+                    <FcGoogle size={20} /> Entrar com Google
+                </button>
+
                 {error && <p className='error'>{error}</p>}              
 
             </form>
