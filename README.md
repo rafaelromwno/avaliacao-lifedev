@@ -1,165 +1,125 @@
-# 📚 Avaliação DW3 - MiniDevBlog React + Firebase + Deploy [Nunca se Esqueça de Montar a Build Final do Deploy]
+# 📘 Avaliação Técnica 1 - Desenvolvimento Web III
 
-## 🏛️ Contextualização
+## Contexto da Atividade
 
-"Nos bons tempos", o desenvolvedor que sabia organizar rotas, proteger páginas e ainda subir uma aplicação pública era considerado digno da espada de um verdadeiro arquiteto de sistemas. Hoje, você terá essa oportunidade.
+Esta avaliação teve como objetivo a construção de um **Mini DevBlog** utilizando **React**, **Firebase** **Authentication** e **Deploy Automatizado**, consolidando os conhecimentos em rotas, autenticação, estados globais, integração contínua e boas práticas de desenvolvimento.
 
-Você irá concluir a construção de um **Mini DevBlog** utilizando **React**, **Firebase Authentication** e **Deploy Automatizado**, tomando como base:
+A base da aplicação foi estruturada a partir do repositório fornecido pelo docente:
 
-> 🔗 [Repositório Inicial (Incompleto) - avalicao-lifedev](https://github.com/victoricoma/avaliacao-lifedev.git)
-
-Inspirando-se na estrutura de:
-
-> 🔗 [Exemplo Estruturado - dw3_react_minidevblog](https://github.com/victoricoma/dw3_react_minidevblog)
+> 🔗 [Repositório Inicial - avaliacao-lifedev](https://github.com/victoricoma/avaliacao-lifedev)
+> 
+> 🔗 [Referência de Estrutura - dw3_react_minidevblog](https://github.com/victoricoma/dw3_react_minidevblog)
 
 ---
 
-## 🛠️ Tarefas a serem realizadas
+## 👨🏽‍💻 Etapas Realizadas
 
-### 1. Preparação do Ambiente
+ 1. Preparação do Ambiente
+		
+	 - [x] Fork do repositório
+	 - [x] Criada a branch de entrega:  
+`avaliacaodw-rafaelromwno`
 
-- Faça o **fork** do repositório de avaliação.
-- Crie uma **branch** chamada:  
-  `avaliacaodw-seulogindogithub`
-- Exemplo: `avaliacaodw-joaosilva`
+ 2. Implementação das Rotas com `react-router-dom`
 
----
 
-### 2. Construção de Rotas Principais
+### Rotas públicas
 
-Implemente as seguintes **rotas** usando `react-router-dom`:
+| Rota                | Função                          | Proteção       |
+|--|--|--|
+| `/`                 | Página Inicial                  | Acesso público |
+| `/about`            | Sobre o site                    | Acesso público |
+| `/login`            | Página de login                 | Acesso público |
+| `/recuperar-senha`  | Recuperação de senha            | Acesso público |
+| `/register`         | Página de Registro              | Acesso público |
+| `/search`           | Pesquisa de publicações         | Acesso público |
+| `*`                 | Não Encontrado (Erro 404)       | Acesso público |
 
-| Rota | Função | Proteção |
-|:----|:------|:------|
-| `/login` | Página de login | Acesso público |
-| `/dashboard` | Listagem de posts | Acesso protegido (usuário logado) |
-| `/post/:id` | Visualização individual de post | Acesso protegido |
-| `/post/new` | Criação de novo post | Acesso protegido |
+### Rotas protegidas
 
----
+| Rota                | Função                          | Proteção        |
+|--|--|--|
+| `/dashboard`        | Listagem de posts               | Acesso protegido|
+| `/post/:id`         | Visualização individual de post | Acesso protegido|
+| `/post/edit/:id`    | Edição de post                  | Acesso protegido|
+| `/post/new`         | Criação de novo post            | Acesso protegido|
 
-### 3. Construção da Dashboard
 
-- Crie uma página `Dashboard.jsx`:
-  - Liste **todos os posts** em cards ou em lista.
-  - Cada card deve ter:
-    - Título do post
-    - Autor (se possível)
-    - Link para visualizar o post completo (`/post/:id`).
 
-- Utilize **Hooks** para buscar os dados:
-  - `useEffect` para puxar os posts ao carregar a página.
-  - `useState` para armazenar a lista de posts.
+ 3. Dashboard (`Dashboard.jsx`)
+ 
+	 - [x] Página que lista todas as postagens
+	 - [x] Cada card exibe: Título,  Autor e  Link para visualização completa
+	 - [x] Dados obtidos via Firebase com `useEffect` e `useState`
 
----
+ 4. Criação de Postagem (`CreatePost.jsx`)
 
-### 4. Construção da Página de Criação de Postagem
+	 - [x] Formulário para criação de publicação
+	 - [x] Botão de **Criar** que persiste dados no Firebase
+	 - [x] Redirecionamento para **home** após a criação
 
-- Crie uma página `CreatePost.jsx`:
-  - Formulário com campos para:
-    - Título
-    - Conteúdo
-  - Botão **Salvar**.
-  - Ao enviar, crie o novo post no **Firebase** ou no contexto/local que esteja usando para simulação.
+ 5. Autenticação com Firebase
 
-- Dica prática:
-  - Use `useState` para controlar os campos do formulário.
-  - Use `useContext` ou chamadas diretas para atualizar a lista de posts ao salvar.
+	 - [x] Login com **Firebase Authentication - Email/Senha**
+	 - [x] Estado global gerenciado via `AuthContext`
+	 - [x] Sessão mantida com `onAuthStateChanged`
 
----
+ 6. Proteção de Rotas
 
-### 5. Sistema de Login (Firebase OAuth)
+	 - [x] Implementado `PrivateRoute` para rotas protegidas
+	 - [x] Redirecionamento automático para `/login` quando **não autenticado**
 
-- Implemente o **login via Firebase Authentication**.
-- Métodos obrigatórios:
-  - Login com **Google** (padrão).
-- Mantenha conexão com o Firebase durante a sessão do usuário.
+ 7. Menu Condicional
+ 
+ 	 - [x] Exibe **Entrar**, **Registrar** e **Sobre** se usuário **não autenticado**
+	 - [x] Exibe **Dashboard**, **Novo Post**,  **Sobre**, **Sair** se **autenticado**
 
----
 
-### 6. Controle de Acesso (Proteção de Rotas)
+## 🌟 Melhorias Extras Implementadas
 
-- Utilize um `PrivateRoute` (ou configuração equivalente) para proteger:
-  - `/dashboard`
-  - `/post/:id`
-  - `/post/new`
+| Recurso | Descrição |
+|--|--|
+| 📝 **CRUD completo de postagens** | Implementação de **edição** e **exclusão** de postagens, além da **criação** e **leitura** |
+|🔐 **Recuperação de senha**| Usuário pode **recuperar o acesso** via email com Firebase Authentication |
+| 🔍 **Busca por tags** | Sistema de **filtro** permite localizar postagens com base em palavras-chave ou tags
+| 📱 **Responsividade aprimorada** | Interface adaptada para uma experiência fluida em **dispositivos móveis** |
+| 🔑 **Autenticação via Google** | Integração completa com **OAuth do Google** para login seguro e rápido |
+| 🎨 Aprimoramento da Identidade Visual | Desenvolvimento de um **logotipo** fictício para a página |
+| 🚔 Monitoramento de rotas inválidas | Tratamento de **erro 404** (Rota não encontrada)|
 
-- Usuário **não logado** deve ser redirecionado para `/login`.
+## 🚀 Deploy e Integração Contínua
 
----
+-   Deploy automático configurado com **Firebase Hosting**
+    
+-   Publicação a cada push na branch principal (**main**)
+    
+-   Análise de segurança com **GitHub Actions + CodeQL**
+    
 
-### 7. Menu de Navegação Condicional
+> 🔗 [Link do sistema publicado](https://avaliacaodw-rafaelromwno-9a249.web.app)  
+> 🔗 [Branch de entrega no GitHub](https://github.com/rafaelromwno/avaliacao-lifedev/tree/avaliacaodw-rafaelromwno)
 
-- Ajuste o menu para:
-  - Exibir apenas **Login** quando o usuário não estiver autenticado.
-  - Exibir **Dashboard**, **Novo Post**, **Logout** quando estiver logado.
+## 🛠️ Tecnologias Utilizadas
 
----
+-   React
+-   React Router DOM
+-   Firebase Authentication + Firestore + Hosting
+-   GitHub Actions + CodeQL
 
-### 8. Configuração de Pipeline e Deploy
+## 📊 Avaliação Esperada
 
-- Configure o deploy automático usando **GitHub Actions** ou plataformas como **Vercel**, **Netlify** ou **Firebase Hosting**:
-  - Após o push para a branch de entrega, o sistema deve ser publicado automaticamente.
-  - Deve ser possível acessar o sistema por link público.
+-   ✅ Organização de código
+    
+-   ✅ Funcionamento completo das rotas e autenticação
+    
+-   ✅ Dashboard funcional com listagem dinâmica
+    
+-   ✅ CRUD completo das postagens
+    
+-   ✅ Deploy público funcional
+    
+-   ✅ Funcionalidades extras e refinamentos técnicos
 
----
+## 📌 Conclusão
 
-## ⚙️ Dicas Técnicas para os Hooks
-
-- **useState**:
-  ```javascript
-  const [posts, setPosts] = useState([]);
-  ```
-
-- **useEffect** para buscar posts:
-  ```javascript
-  useEffect(() => {
-    // Função para buscar posts aqui
-  }, []);
-  ```
-
-- **useContext** para controle global de autenticação:
-  - Criar um `AuthContext`.
-  - Fornecer informações de login para todo o app.
-
-- **Redirecionamento Condicional**:
-  ```javascript
-  if (!user) {
-    return <Navigate to="/login" />;
-  }
-  ```
-
-- **Proteção de Rotas** usando `Outlet`:
-  ```javascript
-  const PrivateRoute = () => {
-    return user ? <Outlet /> : <Navigate to="/login" />;
-  }
-  ```
-
----
-
-## 📌 Entrega
-
-Você deve entregar:
-
-1. **Link da Branch** `avaliacaodw-seulogindogithub`
-2. **Link do Deploy Funcionando** para teste público
-3. **Pipeline CodeQL** rodando no GitHub Actions
-
----
-
-## 📅 Avaliação
-
-Serão avaliados:
-
-- Organização e Estrutura do Código
-- Funcionamento das Rotas e Autenticação
-- Funcionalidade da Dashboard e Criação de Postagem
-- Deploy público funcional
-- Qualidade geral do repositório e uso correto de boas práticas
-
----
-
-# 🚀 Bons estudos e boa sorte!  
-*"O código que você escreve hoje é a carta que você envia para o seu eu do futuro. Capriche."* 📜🚀
-
+A entrega foi concluída com sucesso, atendendo aos requisitos principais da prova e indo além com melhorias significativas em funcionalidade, experiência do usuário e segurança. O **MiniDevBlog** está pronto para uso e demonstra domínio das tecnologias propostas.
