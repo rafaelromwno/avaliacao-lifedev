@@ -8,8 +8,16 @@ import PostCard from '../../components/PostCard'
 const SearchResult = () => {
 
   const query = useQuery()
-  const search = query.get('q')
-  const { documents: posts } = useFetchDocuments('posts', search)
+  const search = query.get('q') || ''
+  const { documents: posts, loading, error } = useFetchDocuments('posts', search)
+
+  if (loading) {
+    return <div>Carregando...</div>
+  }
+
+  if (error) {
+    return <div>Ocorreu um erro: {error.message}</div>
+  }
 
   return (
     <div className={styles.resultsPage}>
