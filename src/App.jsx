@@ -16,6 +16,8 @@ import { useEffect, useState } from 'react'
 import PostView from './pages/PostView/PostView'
 import EditPost from './pages/EditPost/EditPost'
 import RecoverPassword from './pages/RecoverPassword/RecoverPassword'
+import PrivateRoute from './routes/PrivateRoute'
+import NotFound from './components/NotFound'
 
 function App() {
 
@@ -52,14 +54,13 @@ function App() {
               <Route path="/recuperar-senha" element={<RecoverPassword />} />
 
               <Route path="/login" element={!user ? <Login /> : <Navigate to="/"/>} />
-
               <Route path="/register" element={!user ? <Register /> : <Navigate to="/" />} />              
 
-              <Route path="/post/new" element={user ? <CreatePost /> : <Navigate to="/login" />} />
+              <Route path="/post/new" element={<PrivateRoute> <CreatePost /> </PrivateRoute>} />
+              <Route path="/post/edit/:id" element={<PrivateRoute> <EditPost /> </PrivateRoute>} />
+              <Route path="/dashboard" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />
 
-              <Route path="/post/edit/:id" element={user ? <EditPost /> : <Navigate to="/login" />} />
-
-              <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login" />} />
+              <Route path="*" element={<NotFound />} />
               
             </Routes>
           </div>
