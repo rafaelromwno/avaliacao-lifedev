@@ -1,38 +1,121 @@
 .navbar {
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px -2px 10px 0px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 2em;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.brand {
+  font-size: 1.2em;
+}
+
+.brand span {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.links_list {
+  display: flex;
+  list-style: none;
+  gap: 0.5em;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.links_list li {
+  padding: 0.4em 0.6em;
+}
+
+.active {
+  background-color: black;
+  color: #fff;
+  padding: 0.4em 0.6em;
+  border-radius: 0.25em;
+}
+
+.exit {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+}
+
+.top_bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu_btn {
+  display: none;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.links_list_open {
+  display: flex;
+}
+
+.new_post {
+  background-color: #0e810a;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: 300ms
+}
+
+.new_post:hover {
+  background-color: #0c7208;
+}
+
+.icon {
+  margin-right: 0.5rem; 
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+
+  .links_list {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .top_bar {
     display: flex;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px -2px 10px 0px;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5em 2em;
+    width: 100%;
   }
-  
-  .brand {
-    font-size: 1.2em;
-  }
-  
-  .brand span {
-    font-weight: 900;
-    text-transform: uppercase;
-  }
-  
-  .links_list {
-    display: flex;
-    list-style: none;
-  }
-  
-  .links_list li {
-    margin-right: 1em;
-  }
-  
-  .links_list li a {
-    padding: 0.4em 0.6em;
-  }
-  
-  .active {
-    background-color: #000;
-    color: #fff;
-  }
-  .exit{
+
+  .menu_btn {
+    display: block;
+    font-size: 1.5em;
+    background: none;
     border: none;
-    background-color: transparent;
+    cursor: pointer;
+    margin-left: auto; 
   }
+
+  .links_list_open {
+    display: flex; 
+  }
+
+  .links_list li {
+    width: 100%;
+    text-align: center;
+  }
+}

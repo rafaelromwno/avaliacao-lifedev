@@ -1,12 +1,36 @@
 body{
+  background-color: #f2f6f8;
   padding: 0;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
-a{
-  text-decoration: none;
-  color: black;
+
+input::placeholder,
+textarea::placeholder {
+  font-family: "Montserrat", sans-serif;
 }
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+a, nav, button{
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  color: #000;
+  transition: 0.4s;
+  font-size: 1em;
+  cursor: pointer;
+  font-family: "Montserrat", sans-seri;
+}
+
+a:hover,
+nav button:hover {
+  color: #bbb;
+}
+
 form{
   max-width: 50%;
   margin: 0 auto;
@@ -15,29 +39,25 @@ form{
 label{
   display: flex;
   flex-direction: column;
-  margin-bottom: 5px;
+  margin-bottom: 1em;
 }
 
 label span{
-  margin-bottom: .3em;
+  margin-bottom: 0.3em;
   font-weight: bold;
   text-align: left;
 }
+
 input, textarea{
   box-sizing: border-box;
   border: none;
-  border-bottom: 1px solid #999;
-  padding: .8em 0;
+  border-bottom: 1px solid rgb(161, 157, 157);
+  padding: 0.8em 0;
   background-color: transparent;
 }
 
-input::placeholder, textarea::placeholder{
-  color: #aaa;
-  font-family: 'Montserrat',sans-serif;
-}
-
 .btn{
-  background-color: #000;
+  background-color: #0e810a;
   text-align: center;
   color: #fff;
   border-radius: 5px;
@@ -46,23 +66,10 @@ input::placeholder, textarea::placeholder{
   border: none;
   padding: 10px 15px;
   font-size: 1em;
-  margin: 25px auto;
-}
-
-.btn:hover{
-  background-color: #aaa;
-  color: #000;
-  transition: .5s;
-  cursor: pointer;
-}
-
-button[disabled]{
-  color: #dc3545;
-  background-color: #f8d4da;
 }
 
 .btn.btn-dark{
-  background-color: #18891b;
+  background-color: black;
   border-radius: 0;
 }
 
@@ -74,17 +81,26 @@ button[disabled]{
   padding: 7px 30px;
 }
 
+.btn:hover{
+  background-color: #0c7208;
+  color: white;
+  transition: 300ms;
+  cursor: pointer;
+}
+
 .btn.btn-outline:hover{
-  background-color: #dc3545;
+  background-color: black;
   color: #fff;
 }
 
-.container .error{
+button[disabled]{
+  background-color: rgb(161, 157, 157);
+}
+
+.container .error {
   color: #721c24;
-  background-color: #f8d4da;
-  border: 1px solid #f8d4da;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
   padding: 5px;
   border-radius: 5px;
-  align-items: center;
-  text-align: center;
 }

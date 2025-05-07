@@ -1,7 +1,27 @@
-.footer{
-    height: 250px;
+.footer {
+    background-color: #edf3f6;
+    padding: 2em 1em;
+    text-align: center;
+}
+
+.footer_content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    background-color: #edf3f6;
+    gap: 0.5em;
+    margin-bottom: 1em;
+}
+
+.footer_bottom {
+    font-size: 0.9em;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .footer_content h3 {
+        font-size: 1.1em;
+    }
+
+    .footer_content p {
+        font-size: 0.95em;
+    }
 }

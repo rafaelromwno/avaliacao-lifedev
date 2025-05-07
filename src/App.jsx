@@ -1,28 +1,74 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { onAuthStateChanged } from 'firebase/auth'
+import { useAuthentication } from './hooks/useAuthentication'
+import { AuthProvider } from './context/AuthContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
+import About from './pages/About/About'
+import CreatePost from './pages/CreatePost/CreatePost'
+import Dashboard from './pages/Dashboard/Dashboard'
+import SearchResult from './pages/SearchResult/SearchResult'
 import './App.css'
+import { useEffect, useState } from 'react'
+import PostView from './pages/PostView/PostView'
+import EditPost from './pages/EditPost/EditPost'
+import RecoverPassword from './pages/RecoverPassword/RecoverPassword'
+import PrivateRoute from './routes/PrivateRoute'
+import NotFound from './components/NotFound'
 
 function App() {
 
+  const [user, setUser] = useState(undefined)
+  const { auth } = useAuthentication()
+  const isLoading = user === undefined
+
+  useEffect(() => {
+    
+    onAuthStateChanged(auth, (user) => {
+      setUser(user)
+    })
+
+  }, [auth])
+
+  if (isLoading) {
+    return <p>Carregando...</p>;
+  }
+
   return (
     <>
-      <div>
+      <AuthProvider value={{ user }}>
         <BrowserRouter>
-        <Navbar />
+  
+          <Navbar />
+  
           <div className="container">
             <Routes>
+
               <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/search" element={<SearchResult />} />
+              <Route path="/post/:id" element={<PostView />} />
+              <Route path="/recuperar-senha" element={<RecoverPassword />} />
+
+              <Route path="/login" element={!user ? <Login /> : <Navigate to="/"/>} />
+              <Route path="/register" element={!user ? <Register /> : <Navigate to="/" />} />              
+
+              <Route path="/post/new" element={<PrivateRoute> <CreatePost /> </PrivateRoute>} />
+              <Route path="/post/edit/:id" element={<PrivateRoute> <EditPost /> </PrivateRoute>} />
+              <Route path="/dashboard" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />
+
+              <Route path="*" element={<NotFound />} />
+              
             </Routes>
           </div>
+  
           <Footer />
+  
         </BrowserRouter>
-      </div>
+      </AuthProvider>
     </>
   )
 }

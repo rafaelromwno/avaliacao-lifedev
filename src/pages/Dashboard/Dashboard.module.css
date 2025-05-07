@@ -1,0 +1,125 @@
+.dashboard {
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+  
+h2 {
+    color: #333;
+}
+
+.noposts {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.noposts p {
+    color: #777;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.noposts .btn {
+    margin-top: 10px;
+    display: inline-block;
+    background: #0e810a;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.noposts .btn:hover {
+    background: #0c7208;
+}
+
+.post_header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    padding: 10px;
+    background: transparent;
+    color: black;
+    border-bottom: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.post_row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    align-items: center;
+}
+
+div.actions button{
+    background-color: #dc3545;;
+    text-align: center;
+    color: #fff;
+    width: 120px;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+}
+
+div.actions button:hover{
+    background-color: #c01b2c;;
+    text-align: center;
+    color: #fff;
+    width: 120px;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.actions .btn {
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.actions .btn-outline {
+    border: 1px solid #007bff;
+    color: #007bff;
+}
+
+.actions .btn-outline:hover {
+    background: #007bff;
+    color: white;
+}
+
+.actions .btn-danger {
+    border: 1px solid #dc3545;
+    color: #dc3545;
+}
+
+.actions .btn-danger:hover {
+    background: #dc3545;
+    color: white;
+}
+  
+@media (max-width: 600px) {
+    .post_row {
+    flex-direction: column;
+    align-items: flex-start;
+    }
+
+    .actions {
+    margin-top: 10px;
+    flex-wrap: wrap;
+    }
+}
+  

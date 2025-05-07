@@ -1,7 +1,48 @@
 .login {
     text-align: center;
-  }
-   
-  .login p {
-    color: #aaa;
-  }
+}
+  
+.login p {
+  color: #444242;
+}
+
+.link {
+  text-align: left;
+  margin: 20px 0px;
+  color: #444242;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+}
+
+.googleBtn {
+  background-color: #efe6e6;
+  color: #444;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  margin: 15px 0;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 5px;
+  transition: 300ms;
+}
+
+.googleBtn:hover {
+  background-color: #f5f5f5;
+}
+
+.googleBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.divider {
+  font-weight: bold;
+}
