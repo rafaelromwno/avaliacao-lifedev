@@ -3,6 +3,16 @@ import styles from '../../pages/Dashboard/Dashboard.module.css'
 import { Link } from 'react-router-dom'
 
 const PostRow = ({ post, deleteDocument }) => {
+
+    const handleDelete = () => {
+
+        const confirmed = window.confirm('Tem certeza que deseja excluir esta publicação?')
+
+        if (confirmed) {
+          deleteDocument(post.id)
+        }
+    }
+
   return (
     
     <div className={styles.post_row}>
@@ -15,7 +25,7 @@ const PostRow = ({ post, deleteDocument }) => {
                 Editar
             </Link>
             <button
-                onClick={() => deleteDocument(post.id)}
+                onClick={handleDelete}
             >
                 Excluir
             </button>
