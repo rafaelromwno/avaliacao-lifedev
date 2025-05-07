@@ -3,7 +3,9 @@ import { NavLink } from "react-router-dom"
 import { useAuthentication } from '../hooks/useAuthentication'
 import { useAuthValue } from '../context/AuthContext'
 import { useState } from 'react'
-import { LuSquareMenu } from "react-icons/lu";
+import { LuSquareMenu, } from "react-icons/lu";
+import { IoMdPersonAdd } from "react-icons/io";
+import { CiLogin } from "react-icons/ci";
 
 const Navbar = () => {
 
@@ -40,7 +42,7 @@ const Navbar = () => {
                   to="/login"
                   className={({ isActive }) => (isActive ? styles.active : "")}
                 >
-                  Entrar
+                  <CiLogin className={styles.icon} /> Entrar
                 </NavLink>
               </li>
 
@@ -49,7 +51,7 @@ const Navbar = () => {
                   to="/register"
                   className={({ isActive }) => (isActive ? styles.active : "")}
                 >
-                  Registrar
+                  <IoMdPersonAdd  className={styles.icon} /> Registrar
                 </NavLink>
               </li>
 
@@ -61,7 +63,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/post/new"
-                  className={({ isActive }) => (isActive ? styles.active : "")}
+                  className={( { isActive }) => `${isActive ? styles.active : ""} ${styles.new_post}`}
                 >
                   Novo post
                 </NavLink>

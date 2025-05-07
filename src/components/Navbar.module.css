@@ -44,6 +44,8 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  color: red;
+  font-weight: bold;
 }
 
 .top_bar {
@@ -62,6 +64,25 @@
 
 .links_list_open {
   display: flex;
+}
+
+.new_post {
+  background-color: #0e810a;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: 300ms
+}
+
+.new_post:hover {
+  background-color: #0c7208;
+}
+
+.icon {
+  margin-right: 0.5rem; 
+  font-size: 1rem;
+  vertical-align: middle;
 }
 
 @media (max-width: 768px) {
