@@ -63,7 +63,7 @@ const RecoverPassword = () => {
             />
         </label>
 
-        <button className='btn' type='submit'>Enviar link</button>
+        <button className={styles.btnLink} type='submit'>Enviar link</button>
 
         {resetMessage && <p className={styles.success}>{resetMessage}</p>}
         {error && <p className={styles.error}>{error}</p>}
