@@ -2,22 +2,35 @@ import styles from './Navbar.module.css'
 import { NavLink } from "react-router-dom"
 import { useAuthentication } from '../hooks/useAuthentication'
 import { useAuthValue } from '../context/AuthContext'
+import { useState } from 'react'
+import { LuSquareMenu } from "react-icons/lu";
 
 const Navbar = () => {
 
   const { user } = useAuthValue()
   const { logout } = useAuthentication()
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
 
 
   return (
     <>
       <nav className={styles.navbar}>
 
-        <ul className={styles.links_list}>
-          
-          <NavLink to="/" className={styles.brand}>
-            <li><span>Mini</span>DevBlog</li>
-          </NavLink>
+          <div className={styles.top_bar}>
+            <NavLink to="/" className={styles.brand}>
+              <span>Mini</span>DevBlog
+            </NavLink>
+  
+            <button className={styles.menu_btn} onClick={toggleMenu}>
+              <LuSquareMenu />
+            </button>
+          </div>
+
+          <ul className={`${styles.links_list} ${
+          menuOpen ? styles.links_list_open : ""
+          }`}>
 
           {!user && (
             <>
