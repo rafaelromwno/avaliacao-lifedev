@@ -120,7 +120,9 @@ A base da aplicação foi estruturada a partir do repositório fornecido pelo do
     
 -   ✅ Funcionalidades extras e refinamentos técnicos
 
-## 🖼 Prints de Evidência
+## 🖼 Prints de Evidência 
+
+> OBS.: Considerar apenas as funcionalidades, visto que o estilo e a responsividade foram aprimorados na versão posterior! 😀
 
 ### 1. Criando uma conta
 
