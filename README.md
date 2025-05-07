@@ -168,7 +168,7 @@ https://github.com/user-attachments/assets/e259e13d-ff67-4676-992b-880ab655cb85
 
 _**Descrição:**_ Ação de remoção de uma publicação bem-sucedida.
 
-https://github.com/user-attachments/assets/46a3278f-dfba-4f04-9d8b-b296695ee9ae
+https://github.com/user-attachments/assets/a199f392-616b-4584-8cf7-ab3f96ebc0ed
 
 ### 10. Pesquisando uma publicação pela tag
 
@@ -186,7 +186,6 @@ https://github.com/user-attachments/assets/fbeed079-7ff5-49e7-bdbc-ea364cb5570b
 
 ![login-google-popup](https://github.com/user-attachments/assets/13a9e8b8-3b81-4f6a-b2e2-d2b5dced006d)
 
-
 ### 12. Visão no Firebase
 
 _**Descrição:**_ Painel do Firebase mostrando o usuário criado/autenticado na aba de autenticação, evidenciando integração com backend.
@@ -203,6 +202,7 @@ https://github.com/user-attachments/assets/1f21e346-2dbf-46d3-95c9-8f96364d93ae
 
 _**Descrição:**_ Navegação para uma URL inexistente no sistema, resultando em página de erro 404 personalizada.
 
+https://github.com/user-attachments/assets/c6fcacd6-72b1-472a-9285-b9b1c7515246
 
 ## 📌 Conclusão
 
