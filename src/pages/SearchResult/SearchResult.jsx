@@ -7,9 +7,14 @@ import PostCard from '../../components/PostCard'
 
 const SearchResult = () => {
 
+
   const query = useQuery()
-  const search = query.get('q') || ''
-  const { documents: posts, loading, error } = useFetchDocuments('posts', search)
+  const rawSearch = query.get('q') || ''
+  const isTagSearch = rawSearch.includes(' ')
+  const searchTags = isTagSearch ? rawSearch.split(',').map(tag => tag.trim()) : null
+  const searchText = isTagSearch ? '' : rawSearch
+
+  const { documents: posts, loading, error } = useFetchDocuments('posts', searchTags, null, searchText)
 
   if (loading) {
     return <div>Carregando...</div>
@@ -24,7 +29,7 @@ const SearchResult = () => {
       
       <header className={styles.resultsHeader}>
         <h1 className={styles.resultsTitle}>
-          Resultados para: <span className={styles.searchQuery}>{search}</span>
+          Resultados para: <span className={styles.searchQuery}>{searchText || searchTags}</span>
         </h1>
       </header>
 
@@ -34,7 +39,7 @@ const SearchResult = () => {
           <div className={styles.noPosts}>
 
             <p className={styles.noPostsMessage}>
-              Não foram encontrados resultados para: <span className={styles.searchQuery}>{search}</span>
+              Não foram encontrados resultados para: <span className={styles.searchQuery}>{searchText || searchTags}</span>
             </p>
 
 
