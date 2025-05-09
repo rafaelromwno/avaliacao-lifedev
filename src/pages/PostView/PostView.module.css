@@ -54,4 +54,22 @@
     border-radius: 4px;
     font-size: 0.95rem;
     color: #444;
-}  
+} 
+
+.backButton {
+    display: inline-block;
+    margin: 2rem auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #000;
+    color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+}
+
+.backButton:hover {
+    background-color: #333;
+    color: #fff;
+}
