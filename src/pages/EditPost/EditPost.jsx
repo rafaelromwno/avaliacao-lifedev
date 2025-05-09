@@ -6,6 +6,8 @@ import { useAuthValue } from '../../context/AuthContext'
 import { useUpdateDocument } from '../../hooks/useUpdateDocument'
 import { useFetchDocument } from '../../hooks/useFetchDocument'
 import { useParams } from 'react-router-dom'
+import { useCheckPermission } from '../../hooks/useCheckPermission'
+import { Link } from 'react-router-dom'
 
 const EditPost = () => {
 
@@ -19,6 +21,7 @@ const EditPost = () => {
     const {user} = useAuthValue()
     const navigate = useNavigate()
     const { updateDocument, response} = useUpdateDocument('posts')
+    const { hasPermission, loading: permissionLoading } = useCheckPermission('posts', id)
 
   useEffect(() => {
 
@@ -71,6 +74,28 @@ const EditPost = () => {
 
     updateDocument(id, post)  
     navigate("/")
+
+  }
+
+  if (permissionLoading) {
+
+    return <p>Verificando permissões...</p>
+
+  }
+
+  if (!hasPermission) {
+
+    return (
+      <>
+        <p className={styles.permissionDenied}>Você não tem permissão para editar esta publicação!</p>
+
+        <div style={{ textAlign: 'center' }}>
+          <Link to="/" className={`btn btn-dark ${styles.backButton}`}>
+            Voltar
+          </Link>
+        </div>
+      </>
+    )
 
   }
 
