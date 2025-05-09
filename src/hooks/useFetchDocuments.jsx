@@ -8,7 +8,7 @@ import {
     where
 } from "firebase/firestore"
 
-export const useFetchDocuments = (docCollection, search = null, uid = null) => {
+export const useFetchDocuments = (docCollection, search = null, uid = null, text = "") => {
 
     const [documents, setDocuments] = useState(null)
     const [error, setError] = useState(null)
@@ -23,17 +23,17 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
         let queryRef
 
         
-        if (search) {
+        if (search && Array.isArray(search) && search.length > 0) {
 
-            queryRef = query(
+          queryRef = query(
             collectionRef,
-            where("tags", "array-contains", search),
+            where("tags", "array-contains-any", search),
             orderBy("createAt", "desc")
             )
 
         } else if (uid) {
 
-            queryRef = query(
+          queryRef = query(
             collectionRef,
             where("uid", "==", uid),
             orderBy("createAt", "desc")
@@ -41,7 +41,7 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
 
         } else {
 
-            queryRef = query(collectionRef, orderBy("createAt", "desc"))
+          queryRef = query(collectionRef, orderBy("createAt", "desc"))
             
         }
 
@@ -49,10 +49,21 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
             queryRef,
             (snapshot) => {
               if (!cancelled) {
-                const results = snapshot.docs.map((doc) => ({
+                var results = snapshot.docs.map((doc) => ({
                   id: doc.id,
                   ...doc.data()
                 }))
+
+              if (text) {
+                results = results.filter((doc) => {
+                  const title = removeAccents(doc.title || "")
+                  const content = removeAccents(doc.content || "")
+                  const queryText = removeAccents(text)
+
+                  return title.includes(queryText) || content.includes(queryText)
+                })
+              }
+
                 setDocuments(results)
                 setLoading(false)
               }
@@ -75,3 +86,6 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
 
     return { documents, loading, error }
 }
+
+const removeAccents = (str) =>
+  str?.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()

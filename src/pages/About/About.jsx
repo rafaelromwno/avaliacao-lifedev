@@ -10,7 +10,7 @@ const About = () => {
         </h2>
 
         <p>
-            Esse projeto consiste em um mini blog para desenvolvedores feito para uma avaliação da disciplina de Ddesenvolvimento Web III, onde o aluno deve desenvolver um blog com as tecnologias React e Firebase. O projeto foi desenvolvido por <strong>Rafael Romano Silva</strong>!
+            Esse projeto consiste em um mini blog para desenvolvedores feito para uma avaliação da disciplina de Desenvolvimento Web III, onde o aluno deve desenvolver um blog com as tecnologias React e Firebase. O projeto foi desenvolvido por <strong>Rafael Romano Silva</strong>!
         </p>
 
     </div>
